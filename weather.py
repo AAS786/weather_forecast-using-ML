@@ -1,5 +1,4 @@
 import pandas as pd
-import numpy as np
 import pickle as pk
 import streamlit as st
 import warnings
@@ -7,40 +6,9 @@ import warnings
 warnings.filterwarnings("ignore")
 
 # ==========================
-# Load the saved model
+# Load the saved pipeline model (with preprocessing)
 # ==========================
-model = pk.load(open('weather.sav', 'rb'))
-
-# ==========================
-# Define encoders (same mapping as training)
-# ==========================
-cloud_cover_mapping = {
-    'clear': 0,
-    'cloudy': 1,
-    'overcast': 2,
-    'partly cloudy': 3
-}
-
-season_mapping = {
-    'Autumn': 0,
-    'Spring': 1,
-    'Summer': 2,
-    'Winter': 3
-}
-
-location_mapping = {
-    'coastal': 0,
-    'inland': 1,
-    'mountain': 2
-}
-
-# Weather classes (adjust according to your dataset)
-class_labels = {
-    0: "Sunny",
-    1: "Rainy",
-    2: "Cloudy",
-    3: "Snowy"
-}
+model = pk.load(open("weather.sav", "rb"))
 
 # Sidebar for navigation
 st.sidebar.title("Navigation")
@@ -49,67 +17,60 @@ selected = st.sidebar.selectbox("Choose the prediction model", ["Weather Forecas
 # ==========================
 # Weather Forecasting Page
 # ==========================
-if selected == 'Weather Forecasting':
+if selected == "Weather Forecasting":
     st.markdown("<h1 style='text-decoration: underline;'>Weather Forecasting using ML</h1>", unsafe_allow_html=True)
 
     col1, col2 = st.columns(2)
     with col1:
-        temperature = st.text_input('Temperature (°C)')
-        wind_speed = st.text_input('Wind Speed (km/h)')
-        cloud_cover = st.selectbox('Cloud Cover', list(cloud_cover_mapping.keys()))
-        uv_index = st.text_input('UV Index')
-        visibility = st.text_input('Visibility (km)')
+        temperature = st.number_input("🌡 Temperature (°C)", -50.0, 60.0, 25.0)
+        wind_speed = st.number_input("💨 Wind Speed (km/h)", 0.0, 200.0, 10.0)
+        cloud_cover = st.selectbox("☁️ Cloud Cover", ["clear", "partly cloudy", "cloudy", "overcast"])
+        uv_index = st.number_input("☀️ UV Index", 0.0, 15.0, 5.0)
+        visibility = st.number_input("👀 Visibility (km)", 0.0, 50.0, 10.0)
+
     with col2:
-        humidity = st.text_input('Humidity (%)')
-        precipitation = st.text_input('Precipitation (mm)')
-        pressure = st.text_input('Atmospheric Pressure (hPa)')
-        season = st.selectbox('Season', list(season_mapping.keys()))
-        location = st.selectbox('Location', list(location_mapping.keys()))
+        humidity = st.number_input("💧 Humidity (%)", 0.0, 100.0, 50.0)
+        precipitation = st.number_input("🌧 Precipitation (%)", 0.0, 100.0, 10.0)
+        pressure = st.number_input("🌬 Atmospheric Pressure (hPa)", 800.0, 1100.0, 1013.0)
+        season = st.selectbox("🍂 Season", ["Autumn", "Spring", "Summer", "Winter"])
+        location = st.selectbox("📍 Location", ["coastal", "inland", "mountain"])
 
-    # Prediction result
-    if st.button('Predict Weather'):
+    # Prediction
+    if st.button("🔮 Predict Weather"):
         try:
-            # Encode categorical values
-            cloud_cover_encoded = cloud_cover_mapping[cloud_cover]
-            season_encoded = season_mapping[season]
-            location_encoded = location_mapping[location]
+            # Make a DataFrame (feature names must match training data)
+            input_df = pd.DataFrame([{
+                "Temperature": temperature,
+                "Humidity": humidity,
+                "Wind Speed": wind_speed,
+                "Precipitation (%)": precipitation,
+                "Cloud Cover": cloud_cover,
+                "Atmospheric Pressure": pressure,
+                "UV Index": uv_index,
+                "Visibility (km)": visibility,
+                "Season": season,
+                "Location": location
+            }])
 
-            # Convert inputs to float
-            input_data = [
-                float(temperature),
-                float(humidity),
-                float(wind_speed),
-                float(pressure),
-                cloud_cover_encoded,
-                float(uv_index),
-                float(visibility),
-                float(precipitation),
-                season_encoded,
-                location_encoded
-            ]
-            
-            # Make prediction
-            weather_pred = model.predict([input_data])[0]
-            weather_prob = model.predict_proba([input_data])[0]  # probabilities
+            # Predict
+            pred = model.predict(input_df)[0]
+            prob = model.predict_proba(input_df)[0]
 
-            # Predicted category
-            predicted_category = class_labels.get(weather_pred, 'Unknown')
-            st.success(f"🌤 Predicted Weather Category: **{predicted_category}**")
+            # Display result
+            st.success(f"🌤 Predicted Weather Category: **{pred}**")
 
             # Probability distribution
             st.subheader("📊 Prediction Probabilities")
             prob_df = pd.DataFrame({
-                "Weather Category": [class_labels[i] for i in range(len(weather_prob))],
-                "Probability (%)": [round(p * 100, 2) for p in weather_prob]
+                "Weather Category": model.classes_,
+                "Probability (%)": [round(p * 100, 2) for p in prob]
             })
-
             st.table(prob_df)
 
-            # Bar chart visualization
-            st.bar_chart(
-                data=prob_df.set_index("Weather Category"),
-                use_container_width=True
-            )
+            # Pie chart
+            st.subheader("🔵 Probability Distribution (Pie Chart)")
+            st.pyplot(prob_df.set_index("Weather Category").plot.pie(
+                y="Probability (%)", autopct="%.1f%%", figsize=(5,5)).figure)
 
         except Exception as e:
-            st.error(f"⚠️ Error: {e}. Please enter valid numeric values.")
+            st.error(f"⚠️ Error: {e}")
