@@ -36,10 +36,10 @@ location_mapping = {
 
 # Weather classes (adjust according to your dataset)
 class_labels = {
-    0: "Sunny",
+    0: "Cloudy",
     1: "Rainy",
-    2: "Cloudy",
-    3: "Snowy"
+    2: "Snowy",
+    3: "Sunny"
 }
 
 # Sidebar for navigation
