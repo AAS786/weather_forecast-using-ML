@@ -9,7 +9,7 @@ warnings.filterwarnings("ignore")
 # ==========================
 # Load the saved model
 # ==========================
-model = pk.load(open('weather.sav', 'rb'))
+loaded_model = pk.load(open('weather.sav','rb'))
 
 # ==========================
 # Define encoders (same mapping as training)
