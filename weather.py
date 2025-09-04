@@ -68,35 +68,29 @@ if selected == 'Weather Forecasting':
 
     # Prediction result
     if st.button('Predict Weather'):
-        try:
-            # Encode categorical values
-            cloud_cover_encoded = cloud_cover_mapping[cloud_cover]
-            season_encoded = season_mapping[season]
-            location_encoded = location_mapping[location]
+        # Encode categorical values
+        cloud_cover_encoded = cloud_cover_mapping[cloud_cover]
+        season_encoded = season_mapping[season]
+        location_encoded = location_mapping[location]
 
-            # Convert inputs to float
-            input_data = [
-                float(temperature),
-                float(humidity),
-                float(wind_speed),
-                float(pressure),
-                cloud_cover_encoded,
-                float(uv_index),
-                float(visibility),
-                float(precipitation),
-                season_encoded,
-                location_encoded
-            ]
-            
-            # Make prediction
-            weather_pred = loaded_model.predict([input_data])[0]
-            weather_prob = loaded_model.predict_proba([input_data])[0]  # probabilities
+        # Convert inputs to float
+        input_data = [
+            float(temperature),
+            float(humidity),
+            float(wind_speed),
+            float(pressure),
+            cloud_cover_encoded,
+            float(uv_index),
+            float(visibility),
+            float(precipitation),
+            season_encoded,
+            location_encoded
+        ]
+        
+        # Make prediction
+        weather_pred = loaded_model.predict([input_data])[0]
+        weather_prob = loaded_model.predict_proba([input_data])[0]  # probabilities
 
-            # Predicted category
-            predicted_category = class_labels.get(weather_pred, 'Unknown')
-            st.success(f"🌤 Predicted Weather Category: **{predicted_category}**")
-
-            
-
-        except Exception as e:
-            st.error(f"⚠️ Error: {e}. Please enter valid numeric values.")
+        # Predicted category
+        predicted_category = class_labels.get(weather_pred, 'Unknown')
+        st.success(f"🌤 Predicted Weather Category: **{predicted_category}**")
