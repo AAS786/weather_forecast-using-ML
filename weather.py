@@ -131,11 +131,13 @@ elif selected == "About App":
     - 🎉 **Fun weather animations** (🌧️ rain, ❄️ snow, ☀️ sunny toast messages)  
     - 🌍 **Works anywhere** with customizable parameters  
     """)
-    ### 🌍 Use Cases
-    - 👨‍🌾 Agriculture: Helps farmers predict weather for crop planning  
-    - ✈️ Travel: Assists travelers in planning safe journeys  
-    - 🏙️ Smart Cities: Improves urban weather response systems  
-    - ⚡ Renewable Energy: Useful for solar and wind energy forecasting  
+    st.markdown("### 🌍 Use Cases")
+    st.markdown("""
+    - 👨‍🌾 **Agriculture:** Helps farmers predict weather for crop planning  
+    - ✈️ **Travel:** Assists travelers in planning safe journeys  
+    - 🏙️ **Smart Cities:** Improves urban weather response systems  
+    - ⚡ **Renewable Energy:** Useful for solar and wind energy forecasting  
+    """) 
 
 
     st.markdown("### 🌦️ Weather Conditions Explained")
