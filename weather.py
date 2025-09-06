@@ -89,7 +89,10 @@ selected = st.sidebar.selectbox("Choose a page", ["Weather Forecasting", "About 
 # Weather Forecasting Page
 # ==========================
 if selected == 'Weather Forecasting':
-    st.markdown("<h1>🌤 Weather Forecasting using ML 🌤</h1>", unsafe_allow_html=True)
+    st.markdown(
+        "<h1 style='text-align: center; color: #4CAF50;'>🌤️ Weather Forecasting using Machine Learning 🌤️</h1>", 
+        unsafe_allow_html=True
+    )
     st.markdown("---")
 
     col1, col2 = st.columns(2)
