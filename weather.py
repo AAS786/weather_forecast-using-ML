@@ -237,7 +237,8 @@ elif selected == "Dataset Info":
     - **Rows:** ~5000 weather observations  
     - **Features:** Temperature, Humidity, Wind Speed, Pressure, Cloud Cover, Season, Location, etc.  
     - **Target Variable:** Weather Condition (Sunny, Cloudy, Rainy, Snowy)  
-    - **Source:** (Add dataset source here, e.g., Kaggle / OpenWeather / synthetic)  
+    - **Source:** [Kaggle - Weather Type Classification](https://www.kaggle.com/datasets/nikhil7280/weather-type-classification)
+
 
     This dataset was preprocessed with:
     - Missing value handling  
