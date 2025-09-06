@@ -125,6 +125,9 @@ elif selected == "About App":
     like temperature, humidity, wind speed, pressure, and more.
     """)
 
+    col1, col2 = st.columns(2)
+
+with col1:
     st.markdown("### 🌟 Features")
     st.markdown("""
     - 🎛 **User-friendly interface** with simple input fields  
@@ -132,13 +135,16 @@ elif selected == "About App":
     - 🎉 **Fun weather animations** (🌧️ rain, ❄️ snow, ☀️ sunny toast messages)  
     - 🌍 **Works anywhere** with customizable parameters  
     """)
+
+with col2:
     st.markdown("### 🌍 Use Cases")
     st.markdown("""
     - 👨‍🌾 **Agriculture:** Helps farmers predict weather for crop planning  
     - ✈️ **Travel:** Assists travelers in planning safe journeys  
     - 🏙️ **Smart Cities:** Improves urban weather response systems  
     - ⚡ **Renewable Energy:** Useful for solar and wind energy forecasting  
-    """) 
+    """)
+
 
 
     st.markdown("### 🌦️ Weather Conditions Explained")
