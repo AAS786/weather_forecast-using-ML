@@ -112,3 +112,18 @@ if selected == 'Weather Forecasting':
 
         # 🎈 Balloons animation
         st.balloons()
+
+# ==========================
+# About App Page
+# ==========================
+elif selected == "About App":
+    st.markdown("## ℹ️ About this App")
+    st.info("""
+    This **Weather Forecasting App** uses a Machine Learning model to predict weather 
+    conditions (Sunny, Cloudy, Rainy, Snowy) based on various environmental parameters.  
+    
+    **Features**:
+    - User-friendly interface
+    - Visual probability charts
+    - Fun weather-specific animations (🌧 Snow, ☀️ Toast messages, etc.)
+    """)
