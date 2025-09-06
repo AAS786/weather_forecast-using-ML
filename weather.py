@@ -120,10 +120,39 @@ elif selected == "About App":
     st.markdown("## ℹ️ About this App")
     st.info("""
     This **Weather Forecasting App** uses a Machine Learning model to predict weather 
-    conditions (Sunny, Cloudy, Rainy, Snowy) based on various environmental parameters.  
-    
-    **Features**:
-    - User-friendly interface
-    - Visual probability charts
-    - Fun weather-specific animations (🌧 Snow, ☀️ Toast messages, etc.)
+    conditions (☀️ Sunny, ☁️ Cloudy, 🌧️ Rainy, ❄️ Snowy) based on various environmental parameters 
+    like temperature, humidity, wind speed, pressure, and more.
     """)
+
+    st.markdown("### 🌟 Features")
+    st.markdown("""
+    - 🎛 **User-friendly interface** with simple input fields  
+    - 📊 **Visual probability charts** to show model confidence  
+    - 🎉 **Fun weather animations** (🌧️ rain, ❄️ snow, ☀️ sunny toast messages)  
+    - 🌍 **Works anywhere** with customizable parameters  
+    """)
+
+    st.markdown("### 🌦️ Weather Conditions Explained")
+    st.markdown("""
+    **☀️ Sunny**  
+    - Clear skies with little or no clouds  
+    - High UV index, warmer temperatures  
+    - Great for outdoor activities but stay hydrated!  
+
+    **☁️ Cloudy**  
+    - Mostly covered skies with gray or white clouds  
+    - Mild temperatures, lower sunlight  
+    - May precede rainy or stormy conditions  
+
+    **🌧️ Rainy**  
+    - Precipitation in the form of light to heavy rain  
+    - Increased humidity, cooler temperatures  
+    - Carry an umbrella and avoid slippery roads  
+
+    **❄️ Snowy**  
+    - Cold conditions with snowfall  
+    - Reduced visibility and icy surfaces  
+    - Wear warm clothes and take safety precautions while traveling  
+    """)
+
+    st.success("💡 Tip: Enter realistic weather values for more accurate predictions!")
