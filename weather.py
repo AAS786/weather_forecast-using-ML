@@ -92,7 +92,7 @@ if selected == 'Weather Forecasting':
         weather_prob = loaded_model.predict_proba([input_data])[0]  # probabilities
 
         # ==========================
-        # Show Prediction with Emoji + Animation
+        # Show Prediction with Emoji & Balloons
         # ==========================
         predicted_category = class_labels.get(weather_pred, 'Unknown')
 
@@ -107,12 +107,5 @@ if selected == 'Weather Forecasting':
         emoji = weather_emojis.get(predicted_category, "🌤️")
         st.success(f"Predicted Weather: {emoji} **{predicted_category}**")
 
-        # Weather-specific effects
-        if predicted_category == "Sunny":
-            st.toast("☀️ It's a bright and sunny day!")
-        elif predicted_category == "Rainy":
-            st.toast("🌧️ Don't forget your umbrella!")
-        elif predicted_category == "Snowy":
-            st.snow()
-        elif predicted_category == "Cloudy":
-            st.toast("☁️ Looks like a cloudy day ahead!")
+        # 🎈 Balloons animation
+        st.balloons()
