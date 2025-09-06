@@ -44,7 +44,7 @@ class_labels = {
 
 # Sidebar for navigation
 st.sidebar.title("Navigation")
-selected = st.sidebar.selectbox("Choose the prediction model", ["Weather Forecasting"])
+selected = st.sidebar.selectbox("Choose a page", ["Weather Forecasting", "About App"])
 
 # ==========================
 # Weather Forecasting Page
