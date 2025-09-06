@@ -44,7 +44,7 @@ class_labels = {
 
 # Sidebar for navigation
 st.sidebar.title("Navigation")
-selected = st.sidebar.selectbox("Choose a page", ["Weather Forecasting", "About App"])
+selected = st.sidebar.selectbox("Choose a page", ["Weather Forecasting", "About App", "ML Models Used"])
 
 # ==========================
 # Weather Forecasting Page
@@ -156,3 +156,53 @@ elif selected == "About App":
     """)
 
     st.success("💡 Tip: Enter realistic weather values for more accurate predictions!")
+
+elif selected == "ML Models Used":
+    st.markdown("## 🤖 Machine Learning Models Used in this Project")
+
+    st.info("Here are the different ML algorithms we tried and their characteristics:")
+
+    st.markdown("""
+    ### 1. Gaussian Naive Bayes (GaussianNB)  
+    - Probabilistic classifier based on Bayes' theorem  
+    - Assumes features are normally distributed  
+    - Works well with small datasets and real-time predictions  
+
+    ### 2. Decision Tree Classifier 🌳  
+    - Splits data into branches based on feature values  
+    - Easy to interpret and visualize  
+    - Can overfit if not pruned properly  
+
+    ### 3. Random Forest Classifier 🌲🌲  
+    - Ensemble of multiple decision trees  
+    - Reduces overfitting and improves accuracy  
+    - Good for handling missing values and large datasets  
+
+    ### 4. Logistic Regression 📈  
+    - Simple linear model for classification  
+    - Outputs probabilities between 0 and 1  
+    - Performs well when features are linearly separable  
+
+    ### 5. K-Nearest Neighbors (KNN) 👥  
+    - Classifies based on the majority vote of neighbors  
+    - Simple and intuitive, but slow with large datasets  
+    - Works well with normalized numerical features  
+
+    ### 6. Support Vector Machine (SVM) ⚡  
+    - Finds the optimal hyperplane that separates classes  
+    - Effective in high-dimensional spaces  
+    - Can be slow on large datasets  
+
+    ### 7. Gradient Boosting Classifier 🌟  
+    - Ensemble method that builds trees sequentially  
+    - Each tree corrects errors of the previous one  
+    - High accuracy but can be slower to train  
+
+    ### 8. XGBoost Classifier 🚀  
+    - Optimized gradient boosting algorithm  
+    - Very fast, efficient, and widely used in competitions  
+    - Handles missing values and large datasets effectively  
+    """)
+
+    st.success("💡 These models were compared, and the best-performing one was saved as `weather.sav` for predictions.")
+
