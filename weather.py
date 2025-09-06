@@ -145,13 +145,7 @@ elif selected == "About App":
         - ⚡ **Renewable Energy:** Useful for solar and wind energy forecasting  
         """)
 
-
-
     st.markdown("### 🌦️ Weather Conditions Explained")
-
-col1, col2 = st.columns(2)
-
-with col1:
     st.markdown("""
     **☀️ Sunny**  
     - Clear skies with little or no clouds  
@@ -162,10 +156,7 @@ with col1:
     - Mostly covered skies with gray or white clouds  
     - Mild temperatures, lower sunlight  
     - May precede rainy or stormy conditions  
-    """)
 
-with col2:
-    st.markdown("""
     **🌧️ Rainy**  
     - Precipitation in the form of light to heavy rain  
     - Increased humidity, cooler temperatures  
@@ -176,6 +167,10 @@ with col2:
     - Reduced visibility and icy surfaces  
     - Wear warm clothes and take safety precautions while traveling  
     """)
+
+    st.success("💡 Tip: Enter realistic weather values for more accurate predictions!")
+
+
 
 
 elif selected == "ML Models Used":
