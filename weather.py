@@ -101,7 +101,8 @@ if selected == 'Weather Forecasting':
             "Snowy": "❄️"
         }
         emoji = weather_emojis.get(predicted_category, "🌤️")
-        st.success(f"🌤 Predicted Weather Category: **{predicted_category}**")
+        # st.success(f"🌤 Predicted Weather Category: **{predicted_category}**")
+        st.success(f"Predicted Weather: {emoji} **{predicted_category}**")
         
         # Weather-specific effects
         if predicted_category == "Sunny":
