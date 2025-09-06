@@ -50,8 +50,11 @@ selected = st.sidebar.selectbox("Choose the prediction model", ["Weather Forecas
 # Weather Forecasting Page
 # ==========================
 if selected == 'Weather Forecasting':
-    st.markdown("<h1 style='text-decoration: underline;'>Weather Forecasting using ML</h1>", unsafe_allow_html=True)
-
+    st.markdown(
+        "<h1 style='text-align: center; color: #4CAF50;'>🌤️ Weather Forecasting using Machine Learning 🌤️</h1>", 
+        unsafe_allow_html=True
+    )
+    st.markdown("---")
     col1, col2 = st.columns(2)
     with col1:
         temperature = st.number_input('Temperature (°C)')
