@@ -242,7 +242,7 @@ elif selected == "ML Models Used":
 elif selected == "Dataset Info":
     st.markdown("## 📂 Dataset Information")
     st.markdown("""
-    - **Rows:** ~5000 weather observations  
+    - **Rows:** ~13,200 weather observations  
     - **Features:** Temperature, Humidity, Wind Speed, Pressure, Cloud Cover, Season, Location, etc.  
     - **Target Variable:** Weather Condition (Sunny, Cloudy, Rainy, Snowy)  
     - **Source:** [Kaggle - Weather Type Classification](https://www.kaggle.com/datasets/nikhil7280/weather-type-classification)
