@@ -266,13 +266,39 @@ elif selected == "How It Works":
 
 elif selected == "Contact":
     st.markdown("## 👨‍💻 Developer Info")
+
     st.markdown("""
-    **Developed By:** Asif Shaikh
+    **Developed By:** Asif Shaikh  
+    🏷 Role: Machine Learning Developer | Data Science Enthusiast  
+
     📧 Email: Shaikhasif694.@gmail.com  
     🌐 GitHub: [AAS786](https://github.com/AAS786)  
-    🔗 LinkedIn: [AsifShaikh](https://www.linkedin.com/in/asif-shaikh1301/)  
-
-    💡 Feel free to connect if you have feedback or collaboration ideas!
+    🔗 LinkedIn: [AsifShaikh](https://www.linkedin.com/in/AsifShaikh)  
+    🌎 Portfolio: [My Portfolio Website](https://your-portfolio-link.com)  
     """)
+
+    st.markdown("### 🛠 Skills")
+    st.markdown("""
+    🐍 Python | 📊 Pandas | 🔢 NumPy | 🤖 Scikit-learn | 🌲 Random Forest | 🚀 XGBoost | 🌐 Streamlit  
+    """)
+
+    st.markdown("### 🤖 Built with AI Assistance")
+    st.info("""
+    This project was created with the help of **AI tools** like ChatGPT for:  
+    - Debugging and optimizing Python code  
+    - Designing an interactive and user-friendly UI with Streamlit  
+    - Improving project documentation and explanations  
+    - Adding creative ideas (animations, layouts, and presentation)  
+
+    💡 I believe in **AI-assisted development** — using AI as a coding partner to speed up learning, improve productivity, and explore new ideas.
+    """)
+
+    st.markdown("### 🙏 Special Thanks")
+    st.success("""
+    - Streamlit (for the interactive UI)  
+    - Scikit-learn, XGBoost (for ML models)  
+    - ChatGPT (for guidance, debugging, and documentation)  
+    """)
+
 
 
