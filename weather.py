@@ -157,12 +157,12 @@ if selected == 'Weather Forecasting':
             st.toast("☁️ Looks like a cloudy day ahead!")
 
         # Show probabilities
-        st.markdown("### 📊 Prediction Probabilities")
-        prob_df = pd.DataFrame({
-            "Weather Category": [class_labels[i] for i in range(len(weather_prob))],
-            "Probability (%)": [round(p*100, 2) for p in weather_prob]
-        })
-        st.bar_chart(prob_df.set_index("Weather Category"))
+        # st.markdown("### 📊 Prediction Probabilities")
+        # prob_df = pd.DataFrame({
+        #     "Weather Category": [class_labels[i] for i in range(len(weather_prob))],
+        #     "Probability (%)": [round(p*100, 2) for p in weather_prob]
+        # })
+        # st.bar_chart(prob_df.set_index("Weather Category"))
 
 # ==========================
 # About Page
