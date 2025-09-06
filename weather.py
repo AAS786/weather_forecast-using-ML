@@ -93,4 +93,24 @@ if selected == 'Weather Forecasting':
 
         # Predicted category
         predicted_category = class_labels.get(weather_pred, 'Unknown')
+        # Weather emojis
+        weather_emojis = {
+            "Sunny": "☀️",
+            "Rainy": "🌧️",
+            "Cloudy": "☁️",
+            "Snowy": "❄️"
+        }
+        emoji = weather_emojis.get(predicted_category, "🌤️")
         st.success(f"🌤 Predicted Weather Category: **{predicted_category}**")
+        
+        # Weather-specific effects
+        if predicted_category == "Sunny":
+            st.toast("☀️ It's a bright and sunny day!")
+        elif predicted_category == "Rainy":
+            st.toast("🌧️ Don't forget your umbrella!")
+        elif predicted_category == "Snowy":
+            st.snow()
+        elif predicted_category == "Cloudy":
+            st.toast("☁️ Looks like a cloudy day ahead!")
+
+ 
