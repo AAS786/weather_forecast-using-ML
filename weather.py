@@ -44,7 +44,7 @@ class_labels = {
 
 # Sidebar for navigation
 st.sidebar.title("Navigation")
-selected = st.sidebar.selectbox("Choose a page", ["Weather Forecasting", "About App", "ML Models Used", "Model Performance", "Dataset Info", "How It Works", "Contact"])
+selected = st.sidebar.selectbox("Choose a page", ["Weather Forecasting", "About App", "ML Models Used", "Dataset Info", "How It Works", "Contact"])
 
 # ==========================
 # Weather Forecasting Page
@@ -206,23 +206,30 @@ elif selected == "ML Models Used":
 
     st.success("💡 These models were compared, and the best-performing one was saved as `weather.sav` for predictions.")
 
-elif selected == "Model Performance":
-    st.markdown("## 📊 Model Performance Comparison")
+# ==========================
+# Model Performance Page
+# ==========================
 
-    st.info("We evaluated multiple models on accuracy, precision, recall, and F1-score. Below is a summary:")
+# elif selected == "Model Performance":
+#     st.markdown("## 📊 Model Performance Comparison")
 
-    performance_data = {
-        "Model": ["Naive Bayes", "Decision Tree", "Random Forest", "Logistic Regression",
-                  "KNN", "SVM", "Gradient Boosting", "XGBoost"],
-        "Accuracy (%)": [78, 82, 88, 80, 79, 85, 87, 90],
-        "F1-Score": [0.77, 0.81, 0.88, 0.80, 0.78, 0.84, 0.86, 0.91]
-    }
+#     st.info("We evaluated multiple models on accuracy, precision, recall, and F1-score. Below is a summary:")
 
-    df = pd.DataFrame(performance_data)
-    st.table(df)
+#     performance_data = {
+#         "Model": ["Naive Bayes", "Decision Tree", "Random Forest", "Logistic Regression",
+#                   "KNN", "SVM", "Gradient Boosting", "XGBoost"],
+#         "Accuracy (%)": [78, 82, 88, 80, 79, 85, 87, 90],
+#         "F1-Score": [0.77, 0.81, 0.88, 0.80, 0.78, 0.84, 0.86, 0.91]
+#     }
 
-    st.bar_chart(df.set_index("Model")["Accuracy (%)"])
+#     df = pd.DataFrame(performance_data)
+#     st.table(df)
 
+#     st.bar_chart(df.set_index("Model")["Accuracy (%)"])
+
+# ==========================
+# Dataset Info Page
+# ==========================
 
 elif selected == "Dataset Info":
     st.markdown("## 📂 Dataset Information")
@@ -238,6 +245,10 @@ elif selected == "Dataset Info":
     - Normalization of continuous variables  
     """)
 
+# ==========================
+# How It Works Page
+# ==========================
+
 elif selected == "How It Works":
     st.markdown("## 📚 How This App Works")
     st.markdown("""
@@ -247,6 +258,10 @@ elif selected == "How It Works":
     4. **Output:** The app displays the predicted weather with probability distribution  
     5. **Visualization:** Probability chart and animations make results engaging 🎉  
     """)
+
+# ==========================
+# Contact Page
+# ==========================
 
 elif selected == "Contact":
     st.markdown("## 👨‍💻 Developer Info")
