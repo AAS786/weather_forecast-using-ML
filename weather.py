@@ -281,8 +281,7 @@ elif selected == "Contact":
 
     st.markdown("""
     **Developed By:** Asif Shaikh  
-    🏷 Role: Machine Learning Developer | Data Science Enthusiast  
-
+    
     📧 Email: Shaikhasif694.@gmail.com  
     🌐 GitHub: [AAS786](https://github.com/AAS786)  
     🔗 LinkedIn: [AsifShaikh](https://www.linkedin.com/in/AsifShaikh)  
