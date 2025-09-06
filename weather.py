@@ -148,6 +148,10 @@ elif selected == "About App":
 
 
     st.markdown("### 🌦️ Weather Conditions Explained")
+
+col1, col2 = st.columns(2)
+
+with col1:
     st.markdown("""
     **☀️ Sunny**  
     - Clear skies with little or no clouds  
@@ -158,7 +162,10 @@ elif selected == "About App":
     - Mostly covered skies with gray or white clouds  
     - Mild temperatures, lower sunlight  
     - May precede rainy or stormy conditions  
+    """)
 
+with col2:
+    st.markdown("""
     **🌧️ Rainy**  
     - Precipitation in the form of light to heavy rain  
     - Increased humidity, cooler temperatures  
@@ -170,7 +177,6 @@ elif selected == "About App":
     - Wear warm clothes and take safety precautions while traveling  
     """)
 
-    st.success("💡 Tip: Enter realistic weather values for more accurate predictions!")
 
 elif selected == "ML Models Used":
     st.markdown("## 🤖 Machine Learning Models Used in this Project")
