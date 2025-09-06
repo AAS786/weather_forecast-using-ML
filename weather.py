@@ -54,15 +54,15 @@ if selected == 'Weather Forecasting':
 
     col1, col2 = st.columns(2)
     with col1:
-        temperature = st.text_input('Temperature (°C)')
-        wind_speed = st.text_input('Wind Speed (km/h)')
+        temperature = st.number_input('Temperature (°C)')
+        wind_speed = st.number_input('Wind Speed (km/h)')
         cloud_cover = st.selectbox('Cloud Cover', list(cloud_cover_mapping.keys()))
-        uv_index = st.text_input('UV Index')
-        visibility = st.text_input('Visibility (km)')
+        uv_index = st.number_input('UV Index')
+        visibility = st.number_input('Visibility (km)')
     with col2:
-        humidity = st.text_input('Humidity (%)')
-        precipitation = st.text_input('Precipitation (mm)')
-        pressure = st.text_input('Atmospheric Pressure (hPa)')
+        humidity = st.number_input('Humidity (%)')
+        precipitation = st.number_input('Precipitation (mm)')
+        pressure = st.number_input('Atmospheric Pressure (hPa)')
         season = st.selectbox('Season', list(season_mapping.keys()))
         location = st.selectbox('Location', list(location_mapping.keys()))
 
