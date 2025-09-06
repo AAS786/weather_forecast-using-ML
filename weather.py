@@ -42,32 +42,54 @@ class_labels = {
     3: "Sunny"
 }
 
-# Sidebar for navigation
-st.sidebar.title("Navigation")
-selected = st.sidebar.selectbox("Choose the prediction model", ["Weather Forecasting"])
+# Weather emojis
+weather_emojis = {
+    "Sunny": "☀️",
+    "Rainy": "🌧️",
+    "Cloudy": "☁️",
+    "Snowy": "❄️"
+}
+
+# ==========================
+# Page Configuration
+# ==========================
+st.set_page_config(page_title="Weather Forecasting App", page_icon="🌤️", layout="wide")
+
+# ==========================
+# Sidebar
+# ==========================
+st.sidebar.title("🌍 Navigation")
+selected = st.sidebar.selectbox("Choose a page", ["Weather Forecasting", "About App"])
 
 # ==========================
 # Weather Forecasting Page
 # ==========================
 if selected == 'Weather Forecasting':
-    st.markdown("<h1 style='text-decoration: underline;'>Weather Forecasting using ML</h1>", unsafe_allow_html=True)
+    st.markdown(
+        "<h1 style='text-align: center; color: #4CAF50;'>🌤️ Weather Forecasting using Machine Learning 🌤️</h1>", 
+        unsafe_allow_html=True
+    )
+    st.markdown("---")
+
+    # Input Section
+    st.markdown("### 📥 Enter Weather Parameters")
 
     col1, col2 = st.columns(2)
     with col1:
-        temperature = st.number_input('Temperature (°C)')
-        wind_speed = st.number_input('Wind Speed (km/h)')
-        cloud_cover = st.selectbox('Cloud Cover', list(cloud_cover_mapping.keys()))
-        uv_index = st.number_input('UV Index')
-        visibility = st.number_input('Visibility (km)')
+        temperature = st.number_input('🌡 Temperature (°C)')
+        wind_speed = st.number_input('💨 Wind Speed (km/h)')
+        cloud_cover = st.selectbox('☁️ Cloud Cover', list(cloud_cover_mapping.keys()))
+        uv_index = st.number_input('🔆 UV Index')
+        visibility = st.number_input('👀 Visibility (km)')
     with col2:
-        humidity = st.number_input('Humidity (%)')
-        precipitation = st.number_input('Precipitation (mm)')
-        pressure = st.number_input('Atmospheric Pressure (hPa)')
-        season = st.selectbox('Season', list(season_mapping.keys()))
-        location = st.selectbox('Location', list(location_mapping.keys()))
+        humidity = st.number_input('💧 Humidity (%)')
+        precipitation = st.number_input('🌧 Precipitation (mm)')
+        pressure = st.number_input('🌬 Atmospheric Pressure (hPa)')
+        season = st.selectbox('🍂 Season', list(season_mapping.keys()))
+        location = st.selectbox('🗺 Location', list(location_mapping.keys()))
 
     # Prediction result
-    if st.button('Predict Weather'):
+    if st.button('🔮 Predict Weather'):
         # Encode categorical values
         cloud_cover_encoded = cloud_cover_mapping[cloud_cover]
         season_encoded = season_mapping[season]
@@ -93,17 +115,14 @@ if selected == 'Weather Forecasting':
 
         # Predicted category
         predicted_category = class_labels.get(weather_pred, 'Unknown')
-        # Weather emojis
-        weather_emojis = {
-            "Sunny": "☀️",
-            "Rainy": "🌧️",
-            "Cloudy": "☁️",
-            "Snowy": "❄️"
-        }
         emoji = weather_emojis.get(predicted_category, "🌤️")
-        # st.success(f"🌤 Predicted Weather Category: **{predicted_category}**")
+
+        # ==========================
+        # Display Prediction
+        # ==========================
+        st.markdown("### 🎯 Prediction Result")
         st.success(f"Predicted Weather: {emoji} **{predicted_category}**")
-        
+
         # Weather-specific effects
         if predicted_category == "Sunny":
             st.toast("☀️ It's a bright and sunny day!")
@@ -114,4 +133,26 @@ if selected == 'Weather Forecasting':
         elif predicted_category == "Cloudy":
             st.toast("☁️ Looks like a cloudy day ahead!")
 
- 
+        # Show probabilities in expandable section
+        with st.expander("📊 View Prediction Probabilities"):
+            prob_df = pd.DataFrame({
+                "Weather Category": [class_labels[i] for i in range(len(weather_prob))],
+                "Probability (%)": [round(p*100, 2) for p in weather_prob]
+            })
+            st.table(prob_df)
+            st.bar_chart(prob_df.set_index("Weather Category"))
+
+# ==========================
+# About App Page
+# ==========================
+elif selected == "About App":
+    st.markdown("## ℹ️ About this App")
+    st.info("""
+    This **Weather Forecasting App** uses a Machine Learning model to predict weather 
+    conditions (Sunny, Cloudy, Rainy, Snowy) based on various environmental parameters.  
+    
+    **Features**:
+    - User-friendly interface
+    - Visual probability charts
+    - Fun weather-specific animations (🌧 Snow, ☀️ Toast messages, etc.)
+    """)
