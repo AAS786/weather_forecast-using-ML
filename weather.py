@@ -131,6 +131,12 @@ elif selected == "About App":
     - 🎉 **Fun weather animations** (🌧️ rain, ❄️ snow, ☀️ sunny toast messages)  
     - 🌍 **Works anywhere** with customizable parameters  
     """)
+    ### 🌍 Use Cases
+    - 👨‍🌾 Agriculture: Helps farmers predict weather for crop planning  
+    - ✈️ Travel: Assists travelers in planning safe journeys  
+    - 🏙️ Smart Cities: Improves urban weather response systems  
+    - ⚡ Renewable Energy: Useful for solar and wind energy forecasting  
+
 
     st.markdown("### 🌦️ Weather Conditions Explained")
     st.markdown("""
@@ -274,7 +280,7 @@ elif selected == "Contact":
     📧 Email: Shaikhasif694.@gmail.com  
     🌐 GitHub: [AAS786](https://github.com/AAS786)  
     🔗 LinkedIn: [AsifShaikh](https://www.linkedin.com/in/AsifShaikh)  
-    🌎 Portfolio: [My Portfolio Website](https://your-portfolio-link.com)  
+    🌎 Portfolio: [My Portfolio Website](https://aas786.github.io/My-Portfolio-website/)  
     """)
 
     st.markdown("### 🛠 Skills")
